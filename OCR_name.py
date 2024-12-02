@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file
+from flask import Flask, request, send_file, Response
 from flask_restx import Api, Resource
 import cv2
 import numpy as np
@@ -6,12 +6,75 @@ import easyocr
 import re
 from io import BytesIO
 from flask_cors import CORS
+import os
+from dotenv import load_dotenv
+
+# .env 파일 로드
+load_dotenv()
+
+
+# 환경 변수 가져오기
+SECRET_KEY = os.getenv('FLASK_SECRET_KEY')
+VALID_API_KEY = os.getenv('VALID_API_KEY')
+USERNAME = os.getenv('ADMIN_USERNAME')
+PASSWORD = os.getenv('ADMIN_PASSWORD')
+
 
 # Flask 앱 초기화
 app = Flask(__name__)
+
 CORS(app)
+authorizations = {
+    'apiKey': {
+        'type': 'apiKey',
+        'in': 'header',
+        'name': 'X-API-KEY'
+    }
+}
+
 api = Api(app, version="1.0", title="OCR Masking API",
-          description="API for masking personal information in images")
+          description="API for masking personal information in images",
+          doc="/docs",
+          authorizations=authorizations,
+          security='apiKey')
+
+###
+# 인증 데코레이터
+def require_api_key(f):
+    def decorated(*args, **kwargs):
+        api_key = request.headers.get('X-API-KEY')
+        if api_key != VALID_API_KEY:
+            return {"message": "Invalid or missing API key!"}, 403
+        return f(*args, **kwargs)
+    return decorated
+
+
+def check_auth(username, password):
+    return username == USERNAME and password == PASSWORD
+
+def authenticate():
+    return Response(
+        'Authentication required', 401,
+        {'WWW-Authenticate': 'Basic realm="Login Required"'}
+    )
+
+def requires_auth(f):
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
+        return f(*args, **kwargs)
+    return decorated
+
+# Swagger UI 접근 제한
+@app.before_request
+def restrict_swagger():
+    if request.path.startswith('/docs'):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
+
+###
 
 # EasyOCR 모델 및 Haar Cascade 초기화
 reader = easyocr.Reader(['ko', 'en'])
