@@ -8,43 +8,36 @@
 
 [Project Team Repository](https://github.com/wang-bam-bbang)
 
+![이미지 설명](./img/1.png)
 
-<img src="./img/1.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/2.png)
 
-<img src="./img/2.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/2-1.png)
 
-<img src="./img/2-1.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/3.png)
 
-<img src="./img/3.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/3-1.png)
 
-<img src="./img/3-1.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/4.png)
 
-<img src="./img/4.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/5.png)
 
-<img src="./img/5.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/6.png)
 
-<img src="./img/6.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/7.png)
 
-<img src="./img/7.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/8.png)
 
-<img src="./img/8.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/9.png)
 
-<img src="./img/9.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/10.png)
 
-<img src="./img/10.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/11.png)
 
-<img src="./img/11.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/12.png)
 
-<img src="./img/12.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/13.png)
 
-<img src="./img/13.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/14.png)
 
-<img src="./img/14.png" alt="Example Image" style="width:80%;"/>
-
-<img src="./img/15.png" alt="Example Image" style="width:80%;"/>
-
-<img src="./img/16.png" alt="Example Image" style="width:80%;"/>
-
-<img src="./img/17.png" alt="Example Image" style="width:80%;"/>
-
-<img src="./img/18.png" alt="Example Image" style="width:80%;"/>
+![이미지 설명](./img/15.png)
